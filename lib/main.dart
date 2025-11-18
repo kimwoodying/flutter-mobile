@@ -6,6 +6,7 @@ import 'package:kakao_map_plugin/kakao_map_plugin.dart';
 
 import 'config/map_config.dart';
 import 'screens/main_shell.dart';
+import 'screens/chat_host_screen.dart';
 import 'theme/app_theme.dart';
 
 Future<void> main() async {
@@ -24,6 +25,9 @@ class HospitalNaviApp extends StatelessWidget {
     return MaterialApp(
       title: 'CDSSentials',
       debugShowCheckedModeBanner: false,
+      routes: {
+        '/chat': (_) => const ChatHostScreen(),
+      },
       locale: const Locale('ko', 'KR'),
       supportedLocales: const [
         Locale('ko', 'KR'),
