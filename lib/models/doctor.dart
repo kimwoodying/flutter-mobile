@@ -50,4 +50,16 @@ class Doctor {
       department: json['department'] as String? ?? '',
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'username': username,
+      'email': email,
+      'first_name': firstName,
+      'last_name': lastName,
+      'doctor_id': doctorId,
+      'department': department,
+    };
+  }
 }

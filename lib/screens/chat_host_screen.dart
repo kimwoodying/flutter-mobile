@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../widgets/chat_modal.dart';
 
 class ChatHostScreen extends StatelessWidget {
@@ -8,16 +7,8 @@ class ChatHostScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('고객센터'),
-        centerTitle: true,
-      ),
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(12.0),
-          child: ChatModal(),
-        ),
-      ),
+      appBar: AppBar(title: const Text('챗봇')),
+      body: const ChatModal(),
     );
   }
 }

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 class ApiConfig {
   const ApiConfig._();
 
@@ -9,7 +11,8 @@ class ApiConfig {
 
   static const String _localBaseUrl = 'http://127.0.0.1:8000';
   static const String _remoteBaseUrl = 'http://34.42.223.43:8000';
-  static const String _localChatBaseUrl = 'http://10.0.2.2:8001';
+  static String get _localChatBaseUrl =>
+      Platform.isAndroid ? 'http://10.0.2.2:8001' : 'http://127.0.0.1:8001';
   static const String _remoteChatBaseUrl = 'http://34.42.223.43:8001';
 
   static String get baseUrl =>

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../data/feature_item.dart';
-// Chat UI is provided by an external module; trigger via named route '/chat'
+import '../widgets/chat_modal.dart';
 import '../widgets/feature_card.dart';
 import '../widgets/greeting_card.dart';
 import 'doctor_search_screen.dart';
@@ -57,17 +57,15 @@ class DashboardScreen extends StatelessWidget {
   void _handleFeatureTap(BuildContext context, FeatureItem feature) {
     switch (feature.id) {
       case 'chatbot':
-        try {
-          Navigator.of(context).pushNamed('/chat');
-        } catch (_) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text('챗봇 기능은 외부 모듈에서 제공됩니다.'),
-              duration: Duration(seconds: 2),
-              behavior: SnackBarBehavior.floating,
-            ),
-          );
-        }
+        showModalBottomSheet<void>(
+          context: context,
+          isScrollControlled: true,
+          backgroundColor: Colors.transparent,
+          builder: (_) => const FractionallySizedBox(
+            heightFactor: 0.88,
+            child: ChatModal(),
+          ),
+        );
         break;
       case 'department_staff':
         Navigator.of(
